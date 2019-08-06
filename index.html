@@ -1,43 +1,132 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title>I'm fine.</title>
+    <style type="text/css">
+body {
+  background-color: #101010;
+  font-size: 64px;
+}
+body,
+html {
+  height: 100%;
+  overflow: hidden;
+}
+.fake {
+  color: #F0F0F0;
+  z-index: 2;
+}
+h1 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: -0.5em;
+  position: relative;
+  text-align: center;
+  top: 50%;
+}
+span {
+  color: #404040;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.25em;
+  font-weight: bold;
+  left: 100%;
+  position: absolute;
+  white-space: nowrap;
+  z-index:1;
+}
+</style>
+    <meta name="description" content="Really, I'm fine." />
+    <meta name="keywords" content="depression, i am fine, i'm fine, im fine" />
+  </head>
+  <body>
+    <h1 class="fake">I'm fine.</h1>
+    <script type="text/javascript">
+var text = [
+		[
+			"Cu unghii de drac imi scormon amintiri din suflet",
+			"si incerc sa le incalzesc la lumina lunii amare",
+			"dar tu arunci cu pietre in alb in mine",
+			"iar nisipul de pe Marte e rosu aprins",
+			"Devin gri dorian intr=un tablou pierdut",
+			"a carui umbra ma urmareste in somn stins",
+                        "pentru o lume oarba eu am sufletul vandut",
+			"iar nisipul de pe Marte e rosu aprins",
+		],
+		[
+			"Atmospheric haze",
+			"Chanelling broken glass",
+			"Into the dark",
+			"I’m changing the center",
+			"I’m drifting apart",
+			"My heart is dissolving",
+			"There is no jump start",
 
-	<title>Dinesh Pandiyan | Awesome Dev</title>
+			"Empty streets, surrender",
+			"Cataclysm and stray dogs",
+			"Apocalyptic pleasure",
+			"Under the afternoon fog",
 
-	<link rel="icon" href="favicon.ico" type="image/png" />
+			"Handicapped and lonesome",
+			"Jeans and roses in hand",
+			"Plastic surgery and white pills",
+			"I’m waiting for a new start",
 
-	<link href="https://fonts.googleapis.com/css?family=Reem+Kufi|Roboto:300" rel="stylesheet">
-	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/themes/indigo-white.css">
-	<!-- <link rel="stylesheet" href="css/themes/green-white.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/red-white.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/grey-white.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-indigo.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-blue.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-grey.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/white-red.css"> -->
-	<!-- <link rel="stylesheet" href="css/themes/yellow-black.css"> -->
-</head>
-<body>
-	<main>
-		<div class="intro">Hello, I'm Jitanu!</div>
-		<div class="tagline">Machine Learning Enthusiast | Tensorflow C++ Fanatic | Algorithms, Data Structures, Embedded </div>
-		<!-- Find your icons from here - https://fontawesome.com/icons?d=gallery&s=brands -->
-		<div class="icons-social">
-			<a target="_blank" href="https://github.com/flexdinesh"><i class="fab fa-github"></i></a>
-			<a target="_blank" href="https://twitter.com/flexdinesh"><i class="fab fa-twitter"></i></a>
-			<a target="_blank" href="https://stackoverflow.com/story/flexdinesh"><i class="fab fa-stack-overflow"></i></a>
-			<a target="_blank" href="https://www.linkedin.com/in/dineshpandiyan"><i class="fab fa-linkedin"></i></a>
-			<a target="_blank" href="https://medium.com/@flexdinesh"><i class="fab fa-medium"></i></a>
-			<a target="_blank" href="https://www.freecodecamp.org"><i class="fab fa-free-code-camp"></i></a>
-			<a target="_blank" href="https://www.behance.net"><i class="fab fa-behance"></i></a>
-			<a target="_blank" href="https://codepen.io"><i class="fab fa-codepen"></i></a>
-    </div>
-	</main>
-</body>
+			"A tombstone that’s waiting",
+			"My name on the side",
+			"An eulogy to forgiveness",
+			"I’m already dead inside.",
+		]
+	];
+var message = function() {
+		var span = document.createElement("span"),
+			speed = Math.ceil(Math.random() * 4);
+		// Good text.
+		if (Math.random() < 0.01) {
+			span.appendChild(document.createTextNode(text[0][Math.floor(Math.random() * text[0].length)]));
+			span.className = "fake";
+		}
+		// Bad text.
+		else
+			span.appendChild(document.createTextNode(text[1][Math.floor(Math.random() * text[1].length)]));
+		document.body.appendChild(span);
+		span.style.left = document.body.clientWidth + "px"; // otherwise span.style.left is blank during calculations later
+		span.style.top = Math.floor(Math.random() * (document.body.clientHeight - span.clientHeight)) + "px";
+		spans[speed].push(span);
+		setTimeout(
+			function() {
+				requestAnimationFrame(message);
+			},
+			// Taller browsers = more messages added per second
+			Math.random() * span.clientHeight / document.body.clientHeight * 50000
+		);
+	},
+	scroll = function() {
+		requestAnimationFrame(scroll);
+		for (var speed = 1; speed < spans.length; speed++) {
+			// For each span in this speed,
+			for (var x = 0; x < spans[speed].length; x++) {
+				// Move it 1px to the left.
+				var left = parseInt(spans[speed][x].style.left, 10) - speed;
+				spans[speed][x].style.left = left + "px";
+				// If it's completely offscreen,
+				if (left == -1 * spans[speed][x].clientWidth) {
+					// Remvoe it from the DOM.
+					document.body.removeChild(spans[speed][x]);
+					// Remove it from the array.
+					for (y = x; y < spans[speed].length - 1; y++)
+						spans[speed][y] = spans[speed][y + 1];
+					spans[speed].pop();
+					// Reiterate this index (which now contains the next element).
+					if (x < spans[speed].length - 1)
+						x--;
+				}
+			}
+		}
+	},
+	spans = [null, [], [], [], []];
+message();
+scroll();
+    </script>
+  </body>
 </html>
